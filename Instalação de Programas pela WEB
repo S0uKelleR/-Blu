@@ -1,0 +1,22 @@
+@echo off
+
+echo O Chrome foi baixado e instalado?
+echo 1. Sim
+echo 2. Nao
+
+choice /c 12 /m "Digite sua escolha:"
+
+if %errorlevel%==1 (
+    cls
+    echo Instalacoes Finalizadas!
+    echo.
+    pause
+    exit
+) else if %errorlevel%==2 (
+    cls
+    mkdir "C:\Program Files (x86)\Google"
+
+    powershell -Command "Invoke-WebRequest -Uri 'https://dl.google.com/chrome/install/latest/chrome_installer.exe' -OutFile 'C:\Program Files (x86)\Google\chrome_installer.exe'"
+
+    start "" "C:\Program Files (x86)\Google\chrome_installer.exe"
+)
